@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chiranjeev S - Interactive Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans">
+  <!-- Navigation -->
+  <nav class="fixed top-0 inset-x-0 z-50 backdrop-blur bg-slate-950/60 border-b border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#page-1" class="text-xl font-bold tracking-tight text-emerald-400">Chiranjeev S</a>
+      <div class="hidden md:flex gap-6 text-sm" id="navbar">
+        <a href="#page-1" class="nav-link" data-page="1">Home</a>
+        <a href="#page-2" class="nav-link" data-page="2">About</a>
+        <a href="#page-3" class="nav-link" data-page="3">Projects</a>
+        <a href="#page-4" class="nav-link" data-page="4">Experience</a>
+        <a href="#page-5" class="nav-link" data-page="5">Skills</a>
+        <a href="#page-6" class="nav-link" data-page="6">Contact</a>
+      </div>
+      <div class="flex items-center gap-2">
+        <button id="pdf-toggle" class="inline-flex items-center gap-2 rounded-md bg-emerald-500 px-3 py-2 text-slate-900 font-semibold hover:bg-emerald-400 transition">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+          </svg>
+          View PDF
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PDF Viewer Overlay -->
+  <div id="pdf-overlay" class="fixed inset-0 bg-black/80 z-50 hidden">
+    <div class="flex items-center justify-center h-full p-4">
+      <div class="bg-slate-900 rounded-lg p-6 max-w-4xl w-full max-h-[90vh] overflow-hidden">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-xl font-semibold">Portfolio PDF</h3>
+          <button id="close-pdf" class="text-slate-400 hover:text-white">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+        <iframe src="../CHIRANJEEV S - Portfolio 2025.pdf" class="w-full h-[70vh] border border-slate-700 rounded"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page Container -->
+  <main class="pt-24">
+    <!-- Page 1: Homepage (PDF Page 1) -->
+    <section id="page-1" class="page active min-h-screen flex items-center">
+      <div class="container">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="space-y-6">
+            <div class="space-y-4">
+              <h1 class="text-5xl md:text-7xl font-extrabold leading-tight">
+                <span class="text-emerald-400">Chiranjeev</span><br>
+                <span class="text-white">S</span>
+              </h1>
+              <div class="text-2xl md:text-3xl font-light text-slate-300">
+                <span class="typing-text">Full Stack Developer</span>
+              </div>
+            </div>
+            <p class="text-lg text-slate-300 leading-relaxed">
+              Passionate about creating innovative digital experiences through clean code, 
+              modern design, and cutting-edge technology.
+            </p>
+            <div class="flex gap-4">
+              <button class="btn-primary" onclick="navigateToPage(2)">About Me</button>
+              <button class="btn-secondary" onclick="navigateToPage(3)">View Work</button>
+            </div>
+          </div>
+          <div class="relative">
+            <div class="hero-visual">
+              <div class="floating-card">
+                <div class="card-content">
+                  <div class="w-16 h-16 bg-emerald-500 rounded-lg mb-4"></div>
+                  <h3 class="text-xl font-semibold mb-2">Featured Project</h3>
+                  <p class="text-slate-300 text-sm">Interactive web application</p>
+                </div>
+              </div>
+              <div class="floating-card delay-200">
+                <div class="card-content">
+                  <div class="w-16 h-16 bg-blue-500 rounded-lg mb-4"></div>
+                  <h3 class="text-xl font-semibold mb-2">Tech Stack</h3>
+                  <p class="text-slate-300 text-sm">React, Node.js, MongoDB</p>
+                </div>
+              </div>
+              <div class="floating-card delay-400">
+                <div class="card-content">
+                  <div class="w-16 h-16 bg-purple-500 rounded-lg mb-4"></div>
+                  <h3 class="text-xl font-semibold mb-2">Design</h3>
+                  <p class="text-slate-300 text-sm">UI/UX focused</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Page 2: About (PDF Page 2) -->
+    <section id="page-2" class="page min-h-screen flex items-center">
+      <div class="container">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="section-title text-center mb-16">About Me</h2>
+          <div class="grid md:grid-cols-2 gap-12">
+            <div class="space-y-6">
+              <div class="about-card">
+                <h3 class="text-2xl font-semibold mb-4">Background</h3>
+                <p class="text-slate-300 leading-relaxed">
+                  I'm a passionate full-stack developer with expertise in modern web technologies. 
+                  I love creating digital experiences that are both functional and beautiful.
+                </p>
+              </div>
+              <div class="about-card">
+                <h3 class="text-2xl font-semibold mb-4">Philosophy</h3>
+                <p class="text-slate-300 leading-relaxed">
+                  I believe in clean code, user-centered design, and continuous learning. 
+                  Every project is an opportunity to push boundaries and create something meaningful.
+                </p>
+              </div>
+            </div>
+            <div class="space-y-6">
+              <div class="stats-grid">
+                <div class="stat-card">
+                  <div class="stat-number">50+</div>
+                  <div class="stat-label">Projects Completed</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-number">3+</div>
+                  <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-number">15+</div>
+                  <div class="stat-label">Technologies</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-number">100%</div>
+                  <div class="stat-label">Client Satisfaction</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Page 3: Projects (PDF Page 3) -->
+    <section id="page-3" class="page min-h-screen flex items-center">
+      <div class="container">
+        <h2 class="section-title text-center mb-16">Featured Projects</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="project-card">
+            <div class="project-image">
+              <div class="w-full h-48 bg-gradient-to-br from-emerald-500 to-blue-500 rounded-lg"></div>
+            </div>
+            <div class="project-content">
+              <h3 class="text-xl font-semibold mb-2">E-Commerce Platform</h3>
+              <p class="text-slate-300 text-sm mb-4">Full-stack e-commerce solution with React, Node.js, and MongoDB</p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="tag">React</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">MongoDB</span>
+              </div>
+              <button class="btn-primary w-full">View Project</button>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-image">
+              <div class="w-full h-48 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg"></div>
+            </div>
+            <div class="project-content">
+              <h3 class="text-xl font-semibold mb-2">Task Management App</h3>
+              <p class="text-slate-300 text-sm mb-4">Collaborative task management with real-time updates</p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="tag">Vue.js</span>
+                <span class="tag">Socket.io</span>
+                <span class="tag">Express</span>
+              </div>
+              <button class="btn-primary w-full">View Project</button>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-image">
+              <div class="w-full h-48 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg"></div>
+            </div>
+            <div class="project-content">
+              <h3 class="text-xl font-semibold mb-2">Data Visualization</h3>
+              <p class="text-slate-300 text-sm mb-4">Interactive charts and analytics dashboard</p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="tag">D3.js</span>
+                <span class="tag">Python</span>
+                <span class="tag">Flask</span>
+              </div>
+              <button class="btn-primary w-full">View Project</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Page 4: Experience (PDF Page 4) -->
+    <section id="page-4" class="page min-h-screen flex items-center">
+      <div class="container">
+        <h2 class="section-title text-center mb-16">Professional Experience</h2>
+        <div class="max-w-4xl mx-auto">
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <h3 class="text-xl font-semibold mb-2">Senior Full Stack Developer</h3>
+                <p class="text-emerald-400 text-sm mb-2">TechCorp Inc. • 2022 - Present</p>
+                <p class="text-slate-300">Led development of scalable web applications serving 100k+ users. Implemented microservices architecture and CI/CD pipelines.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <h3 class="text-xl font-semibold mb-2">Full Stack Developer</h3>
+                <p class="text-emerald-400 text-sm mb-2">StartupXYZ • 2021 - 2022</p>
+                <p class="text-slate-300">Built MVP products from scratch using React, Node.js, and PostgreSQL. Collaborated with design team to create pixel-perfect UIs.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <h3 class="text-xl font-semibold mb-2">Frontend Developer</h3>
+                <p class="text-emerald-400 text-sm mb-2">Digital Agency • 2020 - 2021</p>
+                <p class="text-slate-300">Developed responsive websites and web applications for various clients. Focused on performance optimization and accessibility.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Page 5: Skills (PDF Page 5) -->
+    <section id="page-5" class="page min-h-screen flex items-center">
+      <div class="container">
+        <h2 class="section-title text-center mb-16">Technical Skills</h2>
+        <div class="max-w-4xl mx-auto">
+          <div class="grid md:grid-cols-2 gap-12">
+            <div class="space-y-8">
+              <div class="skill-category">
+                <h3 class="text-2xl font-semibold mb-6">Frontend</h3>
+                <div class="space-y-4">
+                  <div class="skill-item">
+                    <div class="flex justify-between mb-2">
+                      <span>React</span>
+                      <span class="text-emerald-400">95%</span>
+                    </div>
+                    <div class="skill-bar">
+                      <div class="skill-progress" style="width: 95%"></div>
+                    </div>
+                  </div>
+                  <div class="skill-item">
+                    <div class="flex justify-between mb-2">
+                      <span>JavaScript</span>
+                      <span class="text-emerald-400">90%</span>
+                    </div>
+                    <div class="skill-bar">
+                      <div class="skill-progress" style="width: 90%"></div>
+                    </div>
+                  </div>
+                  <div class="skill-item">
+                    <div class="flex justify-between mb-2">
+                      <span>TypeScript</span>
+                      <span class="text-emerald-400">85%</span>
+                    </div>
+                    <div class="skill-bar">
+                      <div class="skill-progress" style="width: 85%"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="space-y-8">
+              <div class="skill-category">
+                <h3 class="text-2xl font-semibold mb-6">Backend</h3>
+                <div class="space-y-4">
+                  <div class="skill-item">
+                    <div class="flex justify-between mb-2">
+                      <span>Node.js</span>
+                      <span class="text-emerald-400">88%</span>
+                    </div>
+                    <div class="skill-bar">
+                      <div class="skill-progress" style="width: 88%"></div>
+                    </div>
+                  </div>
+                  <div class="skill-item">
+                    <div class="flex justify-between mb-2">
+                      <span>Python</span>
+                      <span class="text-emerald-400">80%</span>
+                    </div>
+                    <div class="skill-bar">
+                      <div class="skill-progress" style="width: 80%"></div>
+                    </div>
+                  </div>
+                  <div class="skill-item">
+                    <div class="flex justify-between mb-2">
+                      <span>MongoDB</span>
+                      <span class="text-emerald-400">85%</span>
+                    </div>
+                    <div class="skill-bar">
+                      <div class="skill-progress" style="width: 85%"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Page 6: Contact (PDF Page 6) -->
+    <section id="page-6" class="page min-h-screen flex items-center">
+      <div class="container">
+        <div class="max-w-4xl mx-auto text-center">
+          <h2 class="section-title mb-16">Let's Connect</h2>
+          <div class="grid md:grid-cols-2 gap-12">
+            <div class="space-y-8">
+              <div class="contact-card">
+                <h3 class="text-2xl font-semibold mb-6">Get In Touch</h3>
+                <p class="text-slate-300 mb-6">
+                  I'm always interested in new opportunities and exciting projects. 
+                  Let's discuss how we can work together!
+                </p>
+                <div class="space-y-4">
+                  <div class="contact-item">
+                    <span class="text-emerald-400">Email:</span>
+                    <span class="text-slate-300">chiranjeev@example.com</span>
+                  </div>
+                  <div class="contact-item">
+                    <span class="text-emerald-400">Phone:</span>
+                    <span class="text-slate-300">+1 (555) 123-4567</span>
+                  </div>
+                  <div class="contact-item">
+                    <span class="text-emerald-400">Location:</span>
+                    <span class="text-slate-300">San Francisco, CA</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="space-y-6">
+              <div class="social-links">
+                <h3 class="text-xl font-semibold mb-4">Follow Me</h3>
+                <div class="flex gap-4 justify-center">
+                  <a href="#" class="social-link">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                  </a>
+                  <a href="#" class="social-link">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.746-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001 12.017.001z"/>
+                    </svg>
+                  </a>
+                  <a href="#" class="social-link">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="download-section">
+                <h3 class="text-xl font-semibold mb-4">Download Resume</h3>
+                <button onclick="openPDF()" class="btn-primary w-full">View PDF Portfolio</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="py-10 border-t border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 text-sm text-slate-400">© <span id="year"></span> Portfolio. All rights reserved.</div>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>
+
